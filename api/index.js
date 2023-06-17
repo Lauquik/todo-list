@@ -6,6 +6,14 @@ const db = require("./db");
 const cors = require("cors");
 const app = express();
 const port = process.env.PORT;
+
+const options = {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  user: "root",
+  pass: "root",
+};
+
 app.use(
   cors({
     credentials: true,
@@ -76,5 +84,7 @@ app.post("/auth", async (req, res) => {
 });
 
 app.listen(port, () => {
+  console.log(process.env.MONGO_URL);
+  console.log("gandu");
   console.log(`app is listening on port ${port}.....`);
 });
